@@ -123,6 +123,10 @@ onMounted(() => {
     handleInput(key);
   });
 });
+
+const reloadPage = () => {
+  window.location.reload();
+};
 </script>
 
 <template>
@@ -143,8 +147,53 @@ onMounted(() => {
         :submitted="index < state.currentGuessIndex"
       />
     </div>
-    <p v-if="wonGame" class="text-center">🏆 Congrats you solved it!</p>
-    <p v-else-if="lostGame" class="text-center">❌ Out of tries.</p>
+    <div v-if="wonGame" class="flex flex-col items-center">
+      <p class="text-center align-baseline">🏆 Congrats you solved it!</p>
+      <button
+        class="
+          mt-5
+          mb-[-1rem]
+          bg-blue-500
+          hover:bg-blue-400
+          text-white
+          font-bold
+          py-2
+          px-4
+          border-b-4 border-blue-700
+          hover:border-blue-500
+          rounded
+          w-[7rem]
+        "
+        @click="reloadPage"
+      >
+        Refresh
+      </button>
+    </div>
+    <div v-else-if="lostGame" class="flex flex-col items-center">
+      <p class="text-center">
+        ❌ Out of tries. <br />
+        <strong>Word: {{ state.solution }}</strong>
+      </p>
+      <button
+        class="
+          mt-5
+          mb-[-1rem]
+          bg-blue-500
+          hover:bg-blue-400
+          text-white
+          font-bold
+          py-2
+          px-4
+          border-b-4 border-blue-700
+          hover:border-blue-500
+          rounded
+          w-[7rem]
+        "
+        @click="reloadPage"
+      >
+        Refresh
+      </button>
+    </div>
     <simple-keyboard
       @onKeyPress="handleInput"
       :guessedLetters="state.guessedLetters"
