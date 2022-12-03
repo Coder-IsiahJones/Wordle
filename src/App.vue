@@ -75,7 +75,7 @@ onMounted(() => {
   <div class="flex justify-center">
     <img
       class="h-[10rem] lg:h-[12rem] object-contain"
-      src="wordleLogo.png"
+      src="/wordleLogo.png"
       alt="wordle"
     />
   </div>
