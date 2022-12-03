@@ -103,4 +103,8 @@ onMounted(() => {
   font-family: 'Montserrat', sans-serif;
   text-transform: capitalize;
 }
+
+body {
+  background-color: #f5f5f5;
+}
 </style>
