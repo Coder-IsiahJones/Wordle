@@ -79,7 +79,7 @@ onMounted(() => {
       alt="wordle"
     />
   </div>
-  <div class="flex flex-col h-screen max-w-lg mx-auto gap-12 lg:pt-[1rem]">
+  <div class="flex flex-col max-w-lg mx-auto gap-12 lg:pt-[1rem]">
     <div class="mb-4">
       <word-row
         v-for="(guess, index) in state.guesses"
